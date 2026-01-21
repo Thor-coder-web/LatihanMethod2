@@ -1,21 +1,37 @@
-﻿//Latihan Method 2  
+﻿//Latihan Method 2
 
-int harga = 20000;
-void hitungDiskon (int a)
+int jumlahItem, hargaItem;
+
+decimal diskon, totalBayar;
+
+decimal hitungDiskon (int jml_item)
 {
-
-    if (a == 5)
+    if (jml_item == 5)
     {
-        Console.WriteLine($"{a * harga}");
+        return 50000;
     }
-    else if (a == 10)
+    else if (jml_item == 10)
     {
-        Console.WriteLine($"{a * harga}");
+        return 75000;
     }
     else
     {
-        Console.WriteLine($"Tidak mendapatkan potongan { a * harga}");
+        return 0;
     }
-
 }
-hitungDiskon (11);
+
+decimal hitungTotalBayar (int jml_item, int harga_item, decimal diskon)
+{
+    return jml_item * harga_item - diskon;
+}
+
+Console.WriteLine("Masukkan Jumlah Item: ");
+jumlahItem = int.Parse(Console.ReadLine());
+
+Console.WriteLine("Masukkan Harga Item: Rp ");
+hargaItem = int.Parse(Console.ReadLine());
+
+diskon = hitungDiskon(jumlahItem);
+totalBayar =hitungTotalBayar(jumlahItem, hargaItem, diskon);
+
+Console.WriteLine($"Total Bayar: Rp {totalBayar}");
